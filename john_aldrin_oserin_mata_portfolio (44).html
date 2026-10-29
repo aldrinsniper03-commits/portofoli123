@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Aldrin Oserin Mata | BSCpE Student Portfolio</title>
+  
+  <!-- Browser Tab Eye Icon (Favicon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'><path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/></svg>">
+
+  <!-- Google Fonts: Inter & Bangers (Anime/Manga Style Font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       CSS STYLESHEET - MONOCHROME DARK AURORA & DYNAMIC SMOKE THEME
+       ========================================================================== */
+    :root {
+      --bg-dark: #07080a;
+      --card-bg: rgba(20, 24, 32, 0.75);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text-main: #ffffff;
+      --text-muted: #ffffff;
+      
+      /* Monochrome Aurora Palette */
+      --aurora-silver: #ffffff;
+      --aurora-gray: #ffffff;
+      --aurora-white: #ffffff;
+      --aurora-charcoal: #ffffff;
+      
+      --glow-white: rgba(255, 255, 255, 0.4);
+      --glow-silver: rgba(255, 255, 255, 0.3);
+      --radius: 16px;
+      --transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-dark);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    body {
+      position: relative;
+      min-height: 100vh;
+      line-height: 1.6;
+      color: #ffffff;
+    }
+
+    /* Background Fast Smoke & Cloud Canvas */
+    #smoke-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Monochrome Aurora Background Lights */
+    .aurora-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .aurora-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(140px);
+      opacity: 0.3;
+      animation: float 16s ease-in-out infinite alternate;
+    }
+
+    .blob-1 {
+      top: -10%;
+      left: -10%;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, #ffffff 0%, #475569 100%);
+    }
+
+    .blob-2 {
+      bottom: -15%;
+      right: -10%;
+      width: 50vw;
+      height: 50vw;
+      background: radial-gradient(circle, #cbd5e1 0%, #0f172a 100%);
+      animation-delay: -5s;
+    }
+
+    .blob-3 {
+      top: 40%;
+      left: 30%;
+      width: 35vw;
+      height: 35vw;
+      background: radial-gradient(circle, #94a3b8 0%, #1e293b 100%);
+      animation-delay: -10s;
+      opacity: 0.2;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+      50% { transform: translate(60px, 80px) scale(1.15) rotate(180deg); }
+      100% { transform: translate(-40px, 40px) scale(0.85) rotate(360deg); }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ANIME / MANGA FONT STYLING FOR HEADINGS & ACCENTS */
+    h1, h2, h3, h4, .logo span, .btn, .contact-form label, .form-control::placeholder {
+      font-family: 'Bangers', cursive, sans-serif;
+      color: #ffffff !important;
+      line-height: 1.2;
+      letter-spacing: 1.5px;
+    }
+
+    /* CARD CONTENT TEXT FONT UPDATED TO ANIME/MANGA STYLE & WHITE COLOR */
+    p, li, span, a, label, strong, .card-list li, .card-list strong, .project-card p, .home-content p, .tag, .form-control, .privacy-notice, .section-subtitle, footer p {
+      font-family: 'Bangers', cursive, sans-serif !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      letter-spacing: 1px;
+    }
+
+    /* GLOBAL HOVER FLOATING & ZOOMING EFFECT FOR TEXT ELEMENTS */
+    p, h1, h2, h3, h4, span, li, label, .tag {
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.3s ease, text-shadow 0.3s ease;
+      display: inline-block;
+    }
+
+    p:hover, h1:hover, h2:hover, h3:hover, h4:hover, span:hover, li:hover, label:hover {
+      transform: scale(1.08) translateY(-4px);
+      text-shadow: 0 4px 15px rgba(255, 255, 255, 0.6);
+    }
+
+    @keyframes hoverWaveZoom {
+      0%, 100% { transform: scale(1.04) rotate(-1deg); }
+      50% { transform: scale(1.12) rotate(1.5deg); }
+    }
+
+    :is(main, header, footer) :is(h1, h2, h3, h4, p, li, a, button, img, label, strong, .tag, .card-icon, .profile-glow, .logo-sticker, .program-sticker, .section-title, .social-icon-btn, svg, span):hover {
+      animation: hoverWaveZoom 0.7s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      :is(main, header, footer) :is(h1, h2, h3, h4, p, li, a, button, img, label, strong, .tag, .card-icon, .profile-glow, .logo-sticker, .program-sticker, .section-title, .social-icon-btn, svg, span):hover {
+        animation: none;
+      }
+
+      h1, h2, h3, h4,
+      nav .logo-sticker,
+      nav .program-sticker,
+      .profile-glow,
+      .form-group label,
+      .graduation-photo,
+      .nstp-photo-frame,
+      .research-photo-frame,
+      .send-icon-btn {
+        animation: none;
+      }
+    }
+
+    .section-title {
+      font-size: 3.2rem;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 12px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #ffffff !important;
+      display: block;
+      width: fit-content;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      color: #ffffff !important;
+      margin-bottom: 50px;
+      font-size: 1.05rem;
+      display: block;
+      width: fit-content;
+    }
+
+    /* FIXED Navigation Bar */
+    header {
+      position: fixed;
+      top: 15px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      background: rgba(12, 14, 20, 0.88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 50px;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.15);
+      transition: var(--transition);
+    }
+
+    nav:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.25);
+    }
+
+    .logo {
+      font-family: 'Bangers', cursive, sans-serif;
+      font-weight: 400;
+      font-size: 1.4rem;
+      color: #ffffff !important;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .logo:hover {
+      transform: scale(1.08) translateY(-4px);
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 255, 255, 0.6), 2px 2px 0px #000;
+    }
+
+    .logo-sticker {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--aurora-silver);
+      box-shadow: 0 0 12px var(--glow-white);
+      transition: var(--transition);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .logo:hover .logo-sticker {
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+    }
+
+    .nav-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      min-width: 0;
+    }
+
+    .program-stickers {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 8px;
+    }
+
+    .program-sticker {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      padding: 2px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 12px var(--glow-white);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    nav .logo-sticker,
+    nav .program-sticker {
+      animation: navLogoDrift var(--logo-drift-duration, 1.8s) ease-in-out var(--logo-drift-delay, 0s) infinite alternate;
+    }
+
+    @keyframes navLogoDrift {
+      from { translate: -4px 0; }
+      to { translate: 4px 0; }
+    }
+
+    .program-sticker:hover {
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 900px) {
+      .nav-brand-group { gap: 14px; }
+      .program-stickers { gap: 6px; }
+      .program-sticker { width: 32px; height: 32px; }
+    }
+
+    @media (max-width: 520px) {
+      .nav-brand-group { gap: 8px; }
+      .program-stickers { gap: 4px; padding-left: 2px; }
+      .program-sticker { width: 27px; height: 27px; }
+      .logo > div span { display: none; }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      font-family: 'Bangers', cursive, sans-serif;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      position: relative;
+      padding: 4px 0;
+      display: inline-block;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff !important;
+      transform: scale(1.2) translateY(-2px);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ffffff, #94a3b8);
+      transition: width 0.3s ease, left 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    section {
+      padding: 100px 0 40px;
+    }
+
+    .home-section {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding-top: 60px;
+    }
+
+    /* GLASS CARDS */
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #ffffff, #475569);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+
+    .glass-card:hover {
+      transform: scale(1.028) translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.45);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 28px rgba(255, 255, 255, 0.2);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+      height: 4px;
+    }
+
+    /* HERO CARD */
+    .hero-card-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      padding: 45px;
+      width: 100%;
+    }
+
+    .home-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .home-content h1 {
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+      color: #ffffff !important;
+    }
+
+    h1, h2, h3, h4 {
+      animation: nstpSideToSide var(--drift-duration, 3s) ease-in-out var(--drift-delay, 0s) infinite alternate;
+    }
+
+    .home-content h2 {
+      font-size: 1.8rem;
+      color: #ffffff !important;
+      font-weight: 400;
+      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+    }
+
+    .home-content p {
+      color: #ffffff !important;
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+      max-width: 550px;
+      line-height: 1.7;
+    }
+
+    /* Social Media Links Bar */
+    .social-links-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 10px;
+    }
+
+    .social-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-icon-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      transition: var(--transition);
+    }
+
+    .social-icon-btn.facebook:hover {
+      background: #1877F2;
+      border-color: #1877F2;
+      color: #ffffff;
+      transform: scale(1.22) translateY(-4px);
+      box-shadow: 0 8px 22px rgba(24, 119, 242, 0.5);
+    }
+
+    .social-icon-btn.instagram:hover {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+      border-color: #d6249f;
+      color: #ffffff;
+      transform: scale(1.22) translateY(-4px);
+      box-shadow: 0 8px 22px rgba(214, 36, 159, 0.5);
+    }
+
+    .social-icon-btn.gmail:hover {
+      background: #EA4335;
+      border-color: #EA4335;
+      color: #ffffff;
+      transform: scale(1.22) translateY(-4px);
+      box-shadow: 0 8px 22px rgba(234, 67, 53, 0.5);
+    }
+
+    .social-icon-btn.tiktok:hover {
+      background: #000000;
+      border-color: #00f2fe;
+      color: #ffffff;
+      transform: scale(1.22) translateY(-4px);
+      box-shadow: 0 8px 22px rgba(0, 242, 254, 0.5), 0 0 15px rgba(255, 0, 80, 0.4);
+    }
+
+    .profile-card {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      min-height: 276px;
+    }
+
+    .profile-glow {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, #ffffff, #64748b, #1e293b);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+      transition: var(--transition);
+    }
+
+    .profile-glow:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.6);
+    }
+
+    /* FULLSCREEN LIGHTBOX & CODE MODALS */
+    .image-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .image-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-modal-img {
+      max-width: 85vw;
+      max-height: 80vh;
+      border-radius: 20px;
+      object-fit: contain;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 255, 255, 0.3);
+      transform: scale(0.9);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .image-modal.active .image-modal-img {
+      transform: scale(1);
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .image-modal-close:hover {
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(1.15) rotate(90deg);
+    }
+
+    /* FULLSCREEN SOURCE CODE DOCUMENT MODAL */
+    .code-modal-wrapper {
+      position: relative;
+      width: 92vw;
+      max-width: 1000px;
+      height: 85vh;
+      background: rgba(12, 15, 22, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .code-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(20, 25, 36, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+    }
+
+    .code-modal-title {
+      font-family: 'Bangers', cursive, sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .copy-btn-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .copy-code-btn {
+      font-family: 'Bangers', cursive, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 8px 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .copy-code-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    /* Speech Bubble Notification */
+    .speech-bubble {
+      position: absolute;
+      top: -45px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px) scale(0.8);
+      background: #ffffff;
+      color: #07080a !important;
+      -webkit-text-fill-color: #07080a !important;
+      font-family: 'Bangers', cursive, sans-serif !important;
+      font-size: 0.95rem;
+      padding: 6px 14px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 10;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px 6px 0;
+      border-style: solid;
+      border-color: #ffffff transparent;
+      display: block;
+      width: 0;
+    }
+
+    .speech-bubble.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .code-modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      background: #090b10;
+    }
+
+    .code-modal-body pre {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+      white-space: pre;
+      tab-size: 4;
+    }
+
+    .logo-choice-content {
+      width: min(90vw, 380px);
+      padding: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 18px;
+      background: rgba(12, 14, 20, 0.96);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75);
+      text-align: center;
+    }
+
+    .logo-choice-content h2 {
+      margin-bottom: 20px;
+      font-size: 1.7rem;
+    }
+
+    .logo-choice-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo-choice-actions button {
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .logo-choice-actions button:hover,
+    .logo-choice-actions button:focus-visible {
+      background: rgba(255, 255, 255, 0.28);
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.2); }
+      100% { box-shadow: 0 0 55px rgba(255, 255, 255, 0.45); }
+    }
+
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      background: #111520;
+      border: 4px solid var(--bg-dark);
+    }
+
+    .about-grid, .skills-grid, .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .card-icon {
+      display: none;
+    }
+
+    .glass-card:hover .card-icon {
+      transform: scale(1.15) rotate(5deg);
+    }
+
+    .glass-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+      color: #ffffff !important;
+    }
+
+    .about-grid .glass-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-grid .glass-card h3 {
+      min-height: 2.4em;
+    }
+
+    .graduation-photos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 18px;
+      width: 100%;
+    }
+
+    .graduation-photo {
+      width: 88px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 4px solid var(--bg-dark);
+      outline: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: var(--transition);
+      animation: nstpSideToSide var(--drift-duration, 3s) ease-in-out var(--drift-delay, 0s) infinite alternate;
+    }
+
+    .graduation-photo:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.35);
+    }
+
+    .hard-skills-card,
+    .soft-skills-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nstp-photos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 20px;
+      width: 100%;
+    }
+
+    .nstp-photo-frame {
+      width: 72px;
+      height: 72px;
+      flex: 0 0 72px;
+      padding: 4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffffff, #64748b, #1e293b);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+      transition: var(--transition);
+      animation: nstpSideToSide var(--drift-duration, 3s) ease-in-out var(--drift-delay, 0s) infinite alternate;
+      cursor: pointer;
+    }
+
+    @keyframes nstpSideToSide {
+      from { translate: -7px 0; }
+      to { translate: 7px 0; }
+    }
+
+    .nstp-photo-frame:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 28px rgba(255, 255, 255, 0.45);
+    }
+
+    .nstp-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--bg-dark);
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .research-photos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    .research-photo-frame {
+      width: 106px;
+      height: 76px;
+      flex: 0 0 106px;
+      padding: 4px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffffff, #64748b, #1e293b);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+      transition: var(--transition);
+      animation: nstpSideToSide var(--drift-duration, 3s) ease-in-out var(--drift-delay, 0s) infinite alternate;
+      cursor: pointer;
+    }
+
+    .programming-photos {
+      display: grid;
+      grid-template-columns: repeat(2, 88px);
+      justify-content: center;
+      gap: 10px 14px;
+      margin-top: 18px;
+      width: 100%;
+    }
+
+    .programming-photos .research-photo-frame {
+      width: 88px;
+      height: 62px;
+      flex-basis: 88px;
+    }
+
+    .project-card .research-photos {
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .project-card .research-photos .research-photo-frame {
+      width: 92px;
+      height: 66px;
+      flex-basis: 92px;
+    }
+
+    .project-card .programming-photos {
+      grid-template-columns: repeat(2, 76px);
+      gap: 8px 10px;
+      margin-top: 12px;
+    }
+
+    .project-card .programming-photos .research-photo-frame {
+      width: 76px;
+      height: 54px;
+      flex-basis: 76px;
+    }
+
+    .research-photo-frame:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 28px rgba(255, 255, 255, 0.45);
+    }
+
+    .research-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--bg-dark);
+      border-radius: inherit;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .card-list {
+      list-style: none;
+    }
+
+    .card-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 10px;
+      color: #ffffff !important;
+      font-size: 0.95rem;
+    }
+
+    .card-list li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #ffffff;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff !important;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    .tag:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+      color: #ffffff !important;
+      transform: scale(1.15) translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 22px;
+    }
+
+    .project-card .card-icon {
+      display: none;
+    }
+
+    .project-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #ffffff !important;
+      font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 20px;
+    }
+
+    .project-resource-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 9px 15px 9px 9px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff !important;
+      text-decoration: none;
+      transition: var(--transition);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .project-resource-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #ffffff;
+      box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
+    }
+
+    .project-resource-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .project-resource-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .contact-container {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contact-email {
+      display: block;
+      margin: 0 auto 20px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .contact-email a {
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff !important;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      animation: emailAdMotion 2.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes emailAdMotion {
+      from {
+        transform: translateX(-6px);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+      }
+      to {
+        transform: translateX(6px);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.65);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .contact-email a { animation: none; }
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 1.1rem;
+      color: #ffffff !important;
+      font-weight: 400;
+      letter-spacing: 1px;
+      animation: contactLabelDrift var(--label-drift-duration, 0.9s) ease-in-out var(--label-drift-delay, 0s) infinite alternate;
+    }
+
+    @keyframes contactLabelDrift {
+      from { translate: -4px 0; }
+      to { translate: 4px 0; }
+    }
+
+    .form-control {
+      background: rgba(10, 12, 18, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: #ffffff !important;
+      font-family: 'Bangers', cursive, sans-serif;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-control::placeholder {
+      font-family: 'Bangers', cursive, sans-serif;
+      color: #ffffff !important;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    .form-control:focus {
+      border-color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .privacy-notice {
+      font-size: 0.8rem;
+      color: #ffffff !important;
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 14px;
+      border-left: 3px solid #ffffff;
+      border-radius: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ffffff, #94a3b8);
+      color: #07080a !important;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+    }
+
+    .send-icon-btn {
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      justify-content: center;
+      align-self: center;
+      animation: sendIconDrift var(--send-duration, 0.45s) ease-in-out var(--send-delay, 0s) infinite alternate;
+    }
+
+    .send-icon-btn svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    @keyframes sendIconDrift {
+      from { transform: translateX(-3px) rotate(-4deg); }
+      to { transform: translateX(3px) rotate(4deg); }
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 40px 0;
+      margin-top: 80px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      background: rgba(7, 8, 10, 0.92);
+    }
+
+    footer p {
+      color: #ffffff !important;
+      font-size: 0.9rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      margin: 0 auto 12px;
+      gap: 10px;
+      font-weight: 700;
+      color: #ffffff !important;
+      cursor: pointer;
+    }
+
+    footer p {
+      display: block;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-card-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .home-content p {
+        margin: 0 auto 25px;
+      }
+
+      .social-links-bar {
+        justify-content: center;
+      }
+
+      .home-content h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 5%;
+        right: 5%;
+        background: rgba(12, 14, 20, 0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 20px;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: var(--transition);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.9);
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Fast Smoke Canvas -->
+  <canvas id="smoke-canvas"></canvas>
+
+  <!-- Monochrome Aurora Lights -->
+  <div class="aurora-container">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+
+  <!-- FIXED Navigation Header -->
+  <header class="container">
+    <nav>
+      <!-- Colegio De Montalban and program logo stickers -->
+      <div class="nav-brand-group">
+        <div class="logo">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <a href="https://www.facebook.com/share/1G248mvJKW/" target="_blank" rel="noopener noreferrer" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000; font-size: 1.2rem; text-decoration: none;">COLEGIO DE MONTALBAN</a>
+          </div>
+        </div>
+        <div class="program-stickers" aria-label="Institute and organization logos">
+          <img src="cdm-logo.jpeg.jpg" alt="Colegio De Montalban Seal" class="program-sticker" id="headerLogoTrigger" tabindex="0" role="button" title="Click to view Colegio De Montalban Seal" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Colegio_de_Montalban_logo.png/300px-Colegio_de_Montalban_logo.png';">
+          <img src="ite.jpg" alt="Institute of Teacher Education logo" class="program-sticker" tabindex="0" role="button" title="Click to view Institute of Teacher Education logo; double-click to open Facebook page">
+          <img src="css.jpg" alt="Computer Students Society logo" class="program-sticker" tabindex="0" role="button" title="Click to view Computer Students Society logo; double-click to open Facebook page">
+          <img src="ibe.jpg" alt="Institute of Business and Entrepreneurship Student Council logo" class="program-sticker" tabindex="0" role="button" title="Click to view Institute of Business and Entrepreneurship Student Council logo; double-click to open Facebook page">
+          <img src="rotc.jpg" alt="Colegio De Montalban ROTC Unit logo" class="program-sticker" tabindex="0" role="button" title="Click to view Colegio De Montalban ROTC Unit logo; double-click to open Facebook page">
+          <img src="ssg.jpg" alt="Colegio De Montalban Supreme Student Government logo" class="program-sticker" tabindex="0" role="button" title="Click to view Colegio De Montalban Supreme Student Government logo; double-click to open Facebook page">
+        </div>
+      </div>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle Navigation">☰</button>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- Home Section with Unified Single Hero Card Container -->
+    <section id="home" class="home-section">
+      <div class="glass-card hero-card-container fade-in">
+        <!-- Text details column -->
+        <div class="home-content">
+          <h1 class="home-name" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000;">JOHN ALDRIN <br><span style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000;">OSERIN MATA</span></h1>
+          <h2 style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 8px rgba(255,255,255,0.7), 2px 2px 0px #000;">1st Year BSCpE Student</h2>
+          <p style="background: none; -webkit-background-clip: initial; -webkit-text-fill-color: #ffffff !important; color: #ffffff !important; text-shadow: 2px 2px 0px #000, 0 0 10px rgba(255,255,255,0.5);">A dedicated Bachelor of Science in Computer Engineering student from Colegio De Montalban, passionate about software fundamentals, technology solutions, and hardware systems.</p>
+
+          <!-- Social Media Accounts with Brand Color Zoom Hover Effects -->
+          <div class="social-links-bar">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/share/18S4kRdMF2/" target="_blank" class="social-icon-btn facebook" title="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/drin.ezco?rpxt=MWN2bWs0NWQzazhyag==" target="_blank" class="social-icon-btn instagram" title="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+
+            <!-- Gmail Icon -->
+            <a href="mailto:mata.johnaldrinn@gmail.com" class="social-icon-btn gmail" title="Send Email">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@_matszxc?_r=1&_t=ZS-9AvS1Bvp2c1" target="_blank" class="social-icon-btn tiktok" title="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.98-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.31 1.56-1.28 2.55.02.83.42 1.64 1.08 2.13.78.58 1.83.72 2.76.43.99-.29 1.79-1.09 2.08-2.08.13-.5.17-1.02.16-1.54.02-5.38.01-10.75.02-16.13z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile picture column -->
+        <div class="profile-card">
+          <div class="profile-glow" id="profileGlow" style="cursor: pointer;" title="Click to view full screen">
+            <img src="picweb.jpg" alt="John Aldrin Oserin Mata" class="profile-img" id="profileImage" onerror="this.onerror=null; this.src='picweb_2.jpg';">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fullscreen Profile Image Lightbox Modal -->
+    <div class="image-modal" id="imageModal">
+      <div class="image-modal-content">
+        <button class="image-modal-close" id="modalClose" aria-label="Close modal">✕</button>
+        <img src="picweb.jpg" alt="John Aldrin Oserin Mata Fullview" class="image-modal-img" id="modalImg">
+      </div>
+    </div>
+
+    <!-- Fullscreen Colegio De Montalban Seal Lightbox Modal -->
+    <div class="image-modal" id="cdmLogoModal">
+      <div class="image-modal-content">
+        <button class="image-modal-close" id="cdmModalClose" aria-label="Close modal">✕</button>
+        <img src="cdm-logo.jpeg.jpg" alt="Colegio De Montalban Seal Fullview" class="image-modal-img" id="cdmModalImg" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Colegio_de_Montalban_logo.png/300px-Colegio_de_Montalban_logo.png';">
+      </div>
+    </div>
+
+    <!-- Organization logo action choices -->
+    <div class="image-modal" id="logoChoiceModal" role="dialog" aria-modal="true" aria-labelledby="logoChoiceTitle">
+      <div class="logo-choice-content">
+        <h2 id="logoChoiceTitle">Choose an option</h2>
+        <div class="logo-choice-actions">
+          <button type="button" id="viewOrganizationLogo">View logo</button>
+          <button type="button" id="viewOrganizationPage">View Facebook page</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- IN-PAGE FULLSCREEN SOURCE CODE DOCUMENT VIEWER MODAL -->
+    <div class="image-modal" id="codeSourceModal" role="dialog" aria-modal="true" aria-labelledby="codeModalTitle">
+      <div class="code-modal-wrapper">
+        <div class="code-modal-header">
+          <div class="code-modal-title" id="codeModalTitle">
+            <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2 4 4h-4zM8 13h8v2H8zm0 4h8v2H8z"/></svg>
+            <span>STUDENT MANAGEMENT SYSTEM - SOURCE CODE</span>
+          </div>
+          <div class="copy-btn-container">
+            <div class="speech-bubble" id="speechBubble">Copied to clipboard!</div>
+            <button class="copy-code-btn" id="copyCodeBtn">
+              <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span>COPY CODE</span>
+            </button>
+          </div>
+          <button class="image-modal-close" id="codeModalClose" style="top: 12px; right: 16px; position: absolute;" aria-label="Close source code viewer">✕</button>
+        </div>
+        <div class="code-modal-body">
+          <pre id="rawCodeText"><code>students = []
+
+
+def add_student():
+    print("\n===== ADD STUDENT =====")
+
+    student_id = input("Enter Student ID: ")
+
+    for student in students:
+        if student["id"] == student_id:
+            print("Error: Student ID already exists.")
+            return
+
+    name = input("Enter Student Name: ")
+
+    # ADDED: Sex Selection
+    print("\nSelect Sex:")
+    print("1. Male")
+    print("2. Female")
+
+    sex_choice = input("Enter your choice: ")
+
+    if sex_choice == "1":
+        sex = "Male"
+    elif sex_choice == "2":
+        sex = "Female"
+    else:
+        print("Invalid sex choice.")
+        return
+
+    course = input("Enter Course: ")
+    year = input("Enter Year Level: ")
+
+    student = {
+        "id": student_id,
+        "name": name,
+        "sex": sex,     
+        "course": course,
+        "year": year,
+        "status": "Active"      
+    }
+
+    students.append(student)
+
+    print("Student added successfully!")
+    
+def view_students():
+    print("\n===== ACTIVE STUDENT LIST =====")
+
+    if len(students) == 0:
+        print("No students found.")
+        return
+
+    print("-" * 85)
+    print(f"{'ID':<15}{'NAME':<25}{'SEX':<12}{'COURSE':<15}{'YEAR':<10}")
+    print("-" * 85)
+
+    for student in students:
+
+        # ADDED: Show only active students
+        if student["status"] == "Active":
+
+            print(
+                f"{student['id']:<15}"
+                f"{student['name']:<25}"
+                f"{student['sex']:<12}"
+                f"{student['course']:<15}"
+                f"{student['year']:<10}"
+            )
+
+    print("-" * 85)
+
+def search_student():
+    print("\n===== SEARCH STUDENT =====")
+
+    student_id = input("Enter Student ID: ")
+
+    for student in students:
+        if student["id"] == student_id and student["status"] == "Active":
+            print("\nStudent Found!")
+            print("Student ID :", student["id"])
+            print("Name       :", student["name"])
+            print("Sex        :", student["sex"])
+            print("Course     :", student["course"])
+            print("Year Level :", student["year"])
+            return
+
+    print("Student not found.")
+
+def update_student():
+    print("\n===== UPDATE STUDENT =====")
+
+    student_id = input("Enter Student ID to update: ")
+
+    for student in students:
+        if student["id"] == student_id and student["status"] == "Active":
+
+            print("\nCurrent Information:")
+            print("Name       :", student["name"])
+            print("Sex        :", student["sex"])    
+            print("Course     :", student["course"])
+            print("Year Level :", student["year"])
+
+            print("\nEnter new information.")
+            print("Press ENTER to keep the current value.")
+
+            name = input("New Name: ")
+
+            # ADDED: Update Sex
+            print("\nNew Sex:")
+            print("1. Male")
+            print("2. Female")
+            print("3. Keep Current Sex")
+
+            sex_choice = input("Enter your choice: ")
+
+            if sex_choice == "1":
+                student["sex"] = "Male"
+            elif sex_choice == "2":
+                student["sex"] = "Female"
+            elif sex_choice == "3" or sex_choice == "":
+                pass
+            else:
+                print("Invalid sex choice. Current sex will remain.")
+
+            course = input("New Course: ")
+            year = input("New Year Level: ")
+
+            if name != "":
+                student["name"] = name
+
+            if course != "":
+                student["course"] = course
+
+            if year != "":
+                student["year"] = year
+
+            print("\nStudent updated successfully!")
+            return
+
+    print("Student not found.")
+
+def delete_student():
+    print("\n===== DELETE STUDENT =====")
+
+    student_id = input("Enter Student ID to delete: ")
+
+    for student in students:
+        if student["id"] == student_id and student["status"] == "Active":
+
+            print("\nStudent Found:")
+            print("Name:", student["name"])
+
+            confirm = input("Are you sure you want to delete? (Y/N): ")
+
+            if confirm.upper() == "Y":
+         
+                student["status"] = "Deleted"
+
+                print("Student deleted successfully!")
+            else:
+                print("Delete operation cancelled.")
+
+            return
+
+    print("Student not found.")
+
+def view_deleted_students():
+    print("\n===== DELETED STUDENT LIST =====")
+
+    deleted_found = False
+
+    print("-" * 85)
+    print(f"{'ID':<15}{'NAME':<25}{'SEX':<12}{'COURSE':<15}{'YEAR':<10}")
+    print("-" * 85)
+
+    for student in students:
+
+        if student["status"] == "Deleted":
+
+            deleted_found = True
+
+            print(
+                f"{student['id']:<15}"
+                f"{student['name']:<25}"
+                f"{student['sex']:<12}"
+                f"{student['course']:<15}"
+                f"{student['year']:<10}"
+            )
+
+    print("-" * 85)
+
+    if deleted_found == False:
+        print("No deleted students found.")
+
+def restore_student():
+    print("\n===== RESTORE STUDENT =====")
+
+    student_id = input("Enter Student ID to restore: ")
+
+    for student in students:
+
+        if student["id"] == student_id and student["status"] == "Deleted":
+
+            print("\nDeleted Student Found:")
+            print("Student ID :", student["id"])
+            print("Name       :", student["name"])
+            print("Sex        :", student["sex"])
+            print("Course     :", student["course"])
+            print("Year Level :", student["year"])
+
+            confirm = input("\nRestore this student? (Y/N): ")
+
+            if confirm.upper() == "Y":
+
+                student["status"] = "Active"
+
+                print("Student restored successfully!")
+
+            else:
+                print("Restore operation cancelled.")
+
+            return
+
+    print("Deleted student not found.")
+
+
+def main():
+
+    while True:
+
+        print("\n")
+        print("=" * 45)
+        print("      STUDENT MANAGEMENT SYSTEM")
+        print("=" * 45)
+
+        print("1. Add Student")
+        print("2. View Students")
+        print("3. Search Student")
+        print("4. Update Student")
+        print("5. Delete Student")
+        print("6. View Deleted Students")
+        print("7. Restore Student")    
+        print("8. Exit")                   
+
+        print("=" * 45)
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            add_student()
+
+        elif choice == "2":
+            view_students()
+
+        elif choice == "3":
+            search_student()
+
+        elif choice == "4":
+            update_student()
+
+        elif choice == "5":
+            delete_student()
+
+        elif choice == "6":
+            view_deleted_students()
+
+        elif choice == "7":
+            restore_student()
+
+        elif choice == "8":
+            print("\nThank you for using the system!")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+main()</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title fade-in" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000; font-family: 'Bangers', cursive, sans-serif; letter-spacing: 2px;">ABOUT ME</h2>
+      <p class="section-subtitle fade-in" style="font-family: 'Bangers', cursive, sans-serif; letter-spacing: 1px; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000;">My academic background, accomplishments, and current journey</p>
+
+      <div class="about-grid">
+        <div class="glass-card fade-in">
+          <div class="card-icon"></div>
+          <h3>Senior High School</h3>
+          <ul class="card-list">
+            <li>Graduated from <strong>Kasiglahan Village Senior High School</strong> (2024–2026)</li>
+            <li>Completed the <strong>Science, Technology, Engineering, and Mathematics (STEM)</strong> strand</li>
+            <li>Graduated <strong>With Honors (93 GWA)</strong></li>
+          </ul>
+          <div class="graduation-photos" aria-label="Graduation photos">
+            <img src="grad1.jpg" alt="Graduation ceremony photo" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+            <img src="grad2.jpg" alt="Senior high school certificate of recognition" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+            <img src="grad3.jpg" alt="Senior high school graduation photo with family" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+          </div>
+        </div>
+
+        <div class="glass-card fade-in">
+          <div class="card-icon"></div>
+          <h3>DOST Scholarship Participant</h3>
+          <ul class="card-list">
+            <li><strong>Participant</strong> in the DOST Scholarship Examination</li>
+            <li>Conducted on <strong>March 2025</strong></li>
+            <li>Main Place: <strong>Quezon City Science High School</strong></li>
+            <li>Venue: <strong>España Blvd, Sampaloc, Manila</strong></li>
+          </ul>
+          <div class="graduation-photos" aria-label="DOST scholarship photos">
+            <img src="dost2.jpg" alt="DOST-SEI scholarship examination test permit" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+            <img src="dostpic.jpg" alt="DOST scholarship-themed photo" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+          </div>
+        </div>
+
+        <div class="glass-card fade-in">
+          <div class="card-icon"></div>
+          <h3>College Student</h3>
+          <ul class="card-list">
+            <li>Dedicated student from <strong>Colegio De Montalban</strong></li>
+            <li>Under the <strong>Institute of Computing Studies (ICS)</strong></li>
+            <li>Possesses basic knowledge in both <strong>Software and Hardware</strong> development</li>
+          </ul>
+          <div class="graduation-photos" aria-label="College student photos">
+            <img src="student2.webp" alt="College student in an online class" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+            <img src="srudent3232.jpg" alt="College student group photo" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+            <img src="collegestudent.jpg" alt="College student group activity" class="graduation-photo" tabindex="0" role="button" title="Click to view full size">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title fade-in" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000; font-family: 'Bangers', cursive, sans-serif; letter-spacing: 2px;">MY SKILLS</h2>
+      <p class="section-subtitle fade-in" style="font-family: 'Bangers', cursive, sans-serif; letter-spacing: 1px; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000;">Technical capabilities, software proficiency, and personal qualities</p>
+
+      <div class="skills-grid">
+        <div class="glass-card fade-in soft-skills-card">
+          <div class="card-icon" style="font-size: 2rem;"></div>
+          <h3>Soft Skills</h3>
+          <div class="skill-tags">
+            <span class="tag">Punctual</span>
+            <span class="tag">Reliable</span>
+            <span class="tag">Professional</span>
+            <span class="tag">Transparent</span>
+            <span class="tag">Patient</span>
+            <span class="tag">Proficient</span>
+            <span class="tag">Teachable</span>
+            <span class="tag">Focused</span>
+            <span class="tag">Lifelong Learner</span>
+            <span class="tag">Adaptive</span>
+          </div>
+          <div class="nstp-photos" aria-label="Soft skills photos">
+            <div class="nstp-photo-frame" tabindex="0" role="button" title="Click to view photo">
+              <img src="me1.jpg" alt="Soft skills photo 1" class="nstp-photo">
+            </div>
+            <div class="nstp-photo-frame" tabindex="0" role="button" title="Click to view photo">
+              <img src="me2.jpg" alt="Soft skills photo 2" class="nstp-photo">
+            </div>
+            <div class="nstp-photo-frame" tabindex="0" role="button" title="Click to view photo">
+              <img src="me3.jpg" alt="Soft skills photo 3" class="nstp-photo">
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card fade-in hard-skills-card">
+          <div class="card-icon"></div>
+          <h3>Hard Skills &amp; Technical Capabilities</h3>
+          <ul class="card-list">
+            <li><strong>Office & Design Tools:</strong> Proficient in Canva, PowerPoint, Picsart, Word, and Microsoft Office Suite</li>
+            <li><strong>Video Editing:</strong> Proficient in CapCut and other modern video editing tools</li>
+            <li><strong>Cleaning & Workspace Maintenance:</strong> Skilled in organizing, sanitizing, and maintaining orderly physical and digital workspaces for optimal efficiency</li>
+          </ul>
+          <div class="nstp-photos" aria-label="NSTP activity photos">
+            <div class="nstp-photo-frame" tabindex="0" role="button" title="Click to view NSTP photo">
+              <img src="nstp2.jpg" alt="NSTP activity cleaning a classroom window" class="nstp-photo">
+            </div>
+            <div class="nstp-photo-frame" tabindex="0" role="button" title="Click to view NSTP photo">
+              <img src="nstp3.jpg" alt="NSTP activity in a classroom" class="nstp-photo">
+            </div>
+            <div class="nstp-photo-frame" tabindex="0" role="button" title="Click to view NSTP photo">
+              <img src="nstp1.jpg" alt="NSTP outdoor cleaning activity" class="nstp-photo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title fade-in" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000; font-family: 'Bangers', cursive, sans-serif; letter-spacing: 2px;">FEATURED PROJECTS</h2>
+      <p class="section-subtitle fade-in" style="font-family: 'Bangers', cursive, sans-serif; letter-spacing: 1px; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000;">Academic projects, multimedia creations, and technical accomplishments</p>
+
+      <div class="projects-grid">
+        <div class="glass-card project-card fade-in">
+          <div class="card-icon"></div>
+           <h3>Practical Research 1 Study</h3>
+          <h3>Development of a Spirulina Algae-Based (Arthrospira maxima) Alternative Air Purification System for Pollutants </h3>
+          <p>An algae-based purification system that uses Spirulina microalgae to help reduce carbon dioxide levels and improve indoor air quality.</p>
+          <div class="research-photos" aria-label="Practical Research 1 project photos">
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view project photo">
+              <img src="algae.jpg" alt="Spirulina algae air purification project" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view project photo">
+              <img src="g11.jpg" alt="Practical Research 1 project group photo" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view project photo">
+              <img src="alage2.jpg" alt="Algae-based air purifier project model" class="research-photo">
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card project-card fade-in">
+          <div class="card-icon"></div>
+          <h3>Practical Research 2 Study</h3>
+          <h3>CASSGUAVarnish: Development of Guava (Psidium guajava) Leaf Extract, Cassava (Manihot esculenta) Starch, and Paraffin Wax as an Alternative Wood Varnish</h3>
+          <p>An alternative wood varnish made from guava leaf extract, cassava starch, and paraffin wax.</p>
+          <div class="research-photos" aria-label="Practical Research 2 project photos">
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view project photo">
+              <img src="cassguava.jpg" alt="CASSGUAVarnish alternative wood varnish project" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view project photo">
+              <img src="g12.jpg" alt="Practical Research 2 project group photo" class="research-photo">
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card project-card fade-in">
+          <div class="card-icon"></div>
+          <h3>Programming Logic and Design</h3>
+          <h3>STUDENT MANAGEMENT SYSTEM</h3>
+          <p>A program that allows users to add, view, search, update, delete, and restore student records efficiently.</p>
+          <button class="project-resource-btn" id="openSourceCodeBtn" type="button" aria-label="View the Student Management System source code">
+            <span class="project-resource-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 2 4 4h-4zM8 13h8v2H8zm0 4h8v2H8z"/></svg>
+            </span>
+            <span>View source code</span>
+          </button>
+          <div class="programming-photos" aria-label="Student Management System screenshots">
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view screenshot">
+              <img src="70ed6e2a-b349-476e-81c3-3cf927647e02.jpg" alt="Student Management System menu screenshot" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view screenshot">
+              <img src="bb0329eb-0f70-4862-be86-9675f2e894c7.jpg" alt="Student Management System student list screenshot" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view screenshot">
+              <img src="2fd7e4a1-cdcd-445c-b16a-13b9886292c8.jpg" alt="Student Management System deleted students screenshot" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view screenshot">
+              <img src="f8be70ef-9a5c-429b-8d96-39c7672c501a.jpg" alt="Student Management System restore student screenshot" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view screenshot">
+              <img src="7e29166b-b557-4716-b3b5-107516bd2ff3.jpg" alt="Student Management System console output screenshot" class="research-photo">
+            </div>
+            <div class="research-photo-frame" tabindex="0" role="button" title="Click to view screenshot">
+              <img src="70ed6e2a-b349-476e-81c3-3cf927647e02 (1).jpg" alt="Student Management System additional menu screenshot" class="research-photo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title fade-in" style="color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000; font-family: 'Bangers', cursive, sans-serif; letter-spacing: 2px;">DROP ME A LINE</h2>
+      <p class="section-subtitle fade-in" style="font-family: 'Bangers', cursive, sans-serif; letter-spacing: 1px; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; background: none; text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.5), 2px 2px 0px #000;">INQUIRE WITH ALDRIN</p>
+
+      <div class="contact-container">
+        <div class="glass-card fade-in">
+          <p class="contact-email">Send a message to <a href="mailto:mata.johnaldrinn@gmail.com">mata.johnaldrinn@gmail.com</a></p>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name (Optional):</label>
+              <input type="text" id="name" class="form-control" placeholder="Your name or organization">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" class="form-control" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <div class="privacy-notice">
+              <strong>Your message will be kept confidential and will not be disclosed in public.(Data Parivacy Act of 2012)</strong>
+            </div>
+
+            <button type="submit" class="btn btn-primary send-icon-btn" style="margin-top: 10px;" aria-label="Send your message" title="Send your message">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo" id="footerLogoTrigger" style="cursor: pointer;">
+        <img src="cdm-logo.jpeg.jpg" alt="Colegio De Montalban Seal" class="logo-sticker" style="width: 26px; height: 26px;" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Colegio_de_Montalban_logo.png/300px-Colegio_de_Montalban_logo.png';">
+        <a href="https://www.facebook.com/share/1G248mvJKW/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="color: inherit; text-decoration: none;">COLEGIO DE MONTALBAN</a>
+      </div>
+      <p>© John Aldrin Oserin Mata. 1st Year BSCpE Student | All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Give each heading a subtle, randomized side-to-side drift.
+    document.querySelectorAll('h1, h2, h3, h4').forEach(heading => {
+      heading.style.setProperty('--drift-duration', `${2.5 + Math.random() * 3}s`);
+      heading.style.setProperty('--drift-delay', `${-Math.random() * 4}s`);
+    });
+
+    // Give each navigation logo its own subtle side-to-side drift.
+    document.querySelectorAll('nav .logo-sticker, nav .program-sticker').forEach(logo => {
+      logo.style.setProperty('--logo-drift-duration', `${1.2 + Math.random() * 1.2}s`);
+      logo.style.setProperty('--logo-drift-delay', `${-Math.random() * 2}s`);
+    });
+
+    // Keep the profile image bouncing inside the hero card.
+    const profileGlowMotion = document.getElementById('profileGlow');
+    const profileCard = profileGlowMotion.parentElement;
+    const heroCard = profileGlowMotion.closest('.hero-card-container');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!reducedMotion) {
+      const imageSize = profileGlowMotion.offsetWidth;
+      let x = profileCard.offsetLeft + (profileCard.clientWidth - imageSize) / 2;
+      let y = profileCard.offsetTop + (profileCard.clientHeight - imageSize) / 2;
+      let velocityX = 130 * (Math.random() < 0.5 ? -1 : 1);
+      let velocityY = 110 * (Math.random() < 0.5 ? -1 : 1);
+      let previousTime = 0;
+
+      // The profile column keeps its layout space; the image moves over the card.
+      profileCard.style.position = 'static';
+      profileGlowMotion.style.position = 'absolute';
+      profileGlowMotion.style.left = `${x}px`;
+      profileGlowMotion.style.top = `${y}px`;
+      profileGlowMotion.style.zIndex = '2';
+
+      function moveProfile(timestamp) {
+        const elapsed = previousTime ? Math.min((timestamp - previousTime) / 1000, 0.05) : 0;
+        previousTime = timestamp;
+
+        const maxX = Math.max(0, heroCard.clientWidth - profileGlowMotion.offsetWidth);
+        const maxY = Math.max(0, heroCard.clientHeight - profileGlowMotion.offsetHeight);
+        x += velocityX * elapsed;
+        y += velocityY * elapsed;
+
+        if (x <= 0 || x >= maxX) {
+          x = Math.max(0, Math.min(x, maxX));
+          velocityX *= -1;
+        }
+        if (y <= 0 || y >= maxY) {
+          y = Math.max(0, Math.min(y, maxY));
+          velocityY *= -1;
+        }
+
+        profileGlowMotion.style.left = `${x}px`;
+        profileGlowMotion.style.top = `${y}px`;
+        requestAnimationFrame(moveProfile);
+      }
+
+      window.addEventListener('resize', () => {
+        const maxX = Math.max(0, heroCard.clientWidth - profileGlowMotion.offsetWidth);
+        const maxY = Math.max(0, heroCard.clientHeight - profileGlowMotion.offsetHeight);
+        x = Math.min(x, maxX);
+        y = Math.min(y, maxY);
+      });
+      requestAnimationFrame(moveProfile);
+    }
+
+    const sendIconButton = document.querySelector('.send-icon-btn');
+    sendIconButton.style.setProperty('--send-duration', `${0.3 + Math.random() * 0.25}s`);
+    sendIconButton.style.setProperty('--send-delay', `${-Math.random() * 0.5}s`);
+
+    document.querySelectorAll('.form-group label').forEach(label => {
+      label.style.setProperty('--label-drift-duration', `${0.7 + Math.random() * 0.5}s`);
+      label.style.setProperty('--label-drift-delay', `${-Math.random()}s`);
+    });
+
+    // Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('appear');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Full-screen Profile Image Lightbox
+    const profileGlow = document.getElementById('profileGlow');
+    const profileImg = document.getElementById('profileImage');
+    const imageModal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.getElementById('modalClose');
+
+    profileGlow.addEventListener('click', () => {
+      modalImg.src = profileImg.currentSrc || profileImg.src;
+      imageModal.classList.add('active');
+    });
+
+    const organizationFacebookPages = {
+      'ite.jpg': 'https://www.facebook.com/share/1DaKRqaR5p/',
+      'css.jpg': 'https://www.facebook.com/share/1FAtuQMxMK/',
+      'ibe.jpg': 'https://www.facebook.com/share/18MARdAxFb/',
+      'rotc.jpg': 'https://www.facebook.com/share/1F9EEnQCLT/',
+      'ssg.jpg': 'https://www.facebook.com/share/1DUrGLBaHs/'
+    };
+
+    document.querySelectorAll('.graduation-photo, .nstp-photo-frame, .research-photo-frame').forEach(photo => {
+      if (photo.classList.contains('nstp-photo-frame') || photo.classList.contains('graduation-photo') || photo.classList.contains('research-photo-frame')) {
+        photo.style.setProperty('--drift-duration', `${2.5 + Math.random() * 3}s`);
+        photo.style.setProperty('--drift-delay', `${-Math.random() * 4}s`);
+      }
+
+      const image = photo.matches('.nstp-photo-frame, .research-photo-frame') ? photo.querySelector('img') : photo;
+      const openPhoto = () => {
+        modalImg.src = image.currentSrc || image.src;
+        modalImg.alt = image.alt;
+        imageModal.classList.add('active');
+      };
+
+      photo.addEventListener('click', openPhoto);
+      photo.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openPhoto();
+        }
+      });
+    });
+
+    const logoChoiceModal = document.getElementById('logoChoiceModal');
+    const viewOrganizationLogo = document.getElementById('viewOrganizationLogo');
+    const viewOrganizationPage = document.getElementById('viewOrganizationPage');
+    let selectedOrganizationLogo = null;
+    let selectedOrganizationPage = '';
+
+    document.querySelectorAll('.program-sticker').forEach(logo => {
+      const openChoices = () => {
+        if (logo.id === 'headerLogoTrigger') {
+          modalImg.src = logo.currentSrc || logo.src;
+          modalImg.alt = logo.alt;
+          imageModal.classList.add('active');
+          return;
+        }
+        selectedOrganizationLogo = logo;
+        selectedOrganizationPage = organizationFacebookPages[logo.getAttribute('src')];
+        logoChoiceModal.classList.add('active');
+        viewOrganizationLogo.focus();
+      };
+
+      logo.addEventListener('click', openChoices);
+      logo.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openChoices();
+        }
+      });
+    });
+
+    viewOrganizationLogo.addEventListener('click', () => {
+      if (!selectedOrganizationLogo) return;
+      modalImg.src = selectedOrganizationLogo.currentSrc || selectedOrganizationLogo.src;
+      modalImg.alt = selectedOrganizationLogo.alt;
+      logoChoiceModal.classList.remove('active');
+      imageModal.classList.add('active');
+    });
+
+    viewOrganizationPage.addEventListener('click', () => {
+      if (!selectedOrganizationPage) return;
+      window.location.href = selectedOrganizationPage;
+    });
+
+    logoChoiceModal.addEventListener('click', event => {
+      if (event.target === logoChoiceModal) {
+        logoChoiceModal.classList.remove('active');
+        selectedOrganizationLogo?.focus();
+      }
+    });
+
+    modalClose.addEventListener('click', () => {
+      imageModal.classList.remove('active');
+    });
+
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) {
+        imageModal.classList.remove('active');
+      }
+    });
+
+    // Colegio De Montalban Logo Lightbox Trigger
+    const cdmLogoModal = document.getElementById('cdmLogoModal');
+    const cdmModalClose = document.getElementById('cdmModalClose');
+    const headerLogoTrigger = document.getElementById('headerLogoTrigger');
+    const footerLogoTrigger = document.getElementById('footerLogoTrigger');
+
+    function openCdmModal() {
+      cdmLogoModal.classList.add('active');
+    }
+
+    footerLogoTrigger.addEventListener('click', () => {
+      const logo = footerLogoTrigger.querySelector('img');
+      modalImg.src = logo.currentSrc || logo.src;
+      modalImg.alt = logo.alt;
+      imageModal.classList.add('active');
+    });
+
+    cdmModalClose.addEventListener('click', () => {
+      cdmLogoModal.classList.remove('active');
+    });
+
+    cdmLogoModal.addEventListener('click', (e) => {
+      if (e.target === cdmLogoModal) {
+        cdmLogoModal.classList.remove('active');
+      }
+    });
+
+    // SOURCE CODE MODAL LOGIC & COPY BUTTON WITH SPEECH BUBBLE
+    const openSourceCodeBtn = document.getElementById('openSourceCodeBtn');
+    const codeSourceModal = document.getElementById('codeSourceModal');
+    const codeModalClose = document.getElementById('codeModalClose');
+    const copyCodeBtn = document.getElementById('copyCodeBtn');
+    const speechBubble = document.getElementById('speechBubble');
+    const rawCodeText = document.getElementById('rawCodeText');
+
+    openSourceCodeBtn.addEventListener('click', () => {
+      codeSourceModal.classList.add('active');
+    });
+
+    codeModalClose.addEventListener('click', () => {
+      codeSourceModal.classList.remove('active');
+    });
+
+    codeSourceModal.addEventListener('click', (e) => {
+      if (e.target === codeSourceModal) {
+        codeSourceModal.classList.remove('active');
+      }
+    });
+
+    copyCodeBtn.addEventListener('click', () => {
+      const textToCopy = rawCodeText.textContent;
+      
+      // Copy to clipboard with fallback
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+
+      // Show speech bubble feedback
+      speechBubble.classList.add('show');
+      setTimeout(() => {
+        speechBubble.classList.remove('show');
+      }, 2200);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (imageModal.classList.contains('active')) imageModal.classList.remove('active');
+        if (cdmLogoModal.classList.contains('active')) cdmLogoModal.classList.remove('active');
+        if (codeSourceModal.classList.contains('active')) codeSourceModal.classList.remove('active');
+        if (logoChoiceModal.classList.contains('active')) {
+          logoChoiceModal.classList.remove('active');
+          selectedOrganizationLogo?.focus();
+        }
+      }
+    });
+
+    // Open a pre-filled email draft; the visitor sends it from their email app.
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nameVal = document.getElementById('name').value.trim();
+      const messageVal = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent(`Portfolio message${nameVal ? ` from ${nameVal}` : ''}`);
+      const body = encodeURIComponent(`${messageVal}${nameVal ? `\n\nFrom: ${nameVal}` : ''}`);
+      window.location.href = `mailto:mata.johnaldrinn@gmail.com?subject=${subject}&body=${body}`;
+    });
+
+    // Dynamic Smoke Canvas Engine
+    const canvas = document.getElementById('smoke-canvas');
+    const ctx = canvas.getContext('2d');
+    let smokeParticles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class FastSmokeParticle {
+      constructor() {
+        this.reset(true);
+      }
+
+      reset(initial = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = initial ? Math.random() * canvas.height : canvas.height + Math.random() * 100;
+        this.radius = Math.random() * 140 + 100;
+        this.vx = (Math.random() - 0.5) * 1.2;
+        this.vy = -Math.random() * 1.5 - 0.6;
+        this.growthRate = Math.random() * 0.15 + 0.05;
+        this.alpha = Math.random() * 0.22 + 0.08;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.spin = (Math.random() - 0.5) * 0.008;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.radius += this.growthRate;
+        this.rotation += this.spin;
+
+        if (this.y + this.radius < -50 || this.x < -this.radius * 2 || this.x > canvas.width + this.radius * 2) {
+          this.reset(false);
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        
+        ctx.beginPath();
+        let gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.radius);
+        gradient.addColorStop(0, `rgba(240, 245, 255, ${this.alpha})`);
+        gradient.addColorStop(0.4, `rgba(180, 190, 205, ${this.alpha * 0.6})`);
+        gradient.addColorStop(0.8, `rgba(90, 100, 115, ${this.alpha * 0.2})`);
+        gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        
+        ctx.fillStyle = gradient;
+        ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function initSmoke() {
+      smokeParticles = [];
+      const particleCount = Math.floor((canvas.width * canvas.height) / 18000) + 22;
+      for (let i = 0; i < particleCount; i++) {
+        smokeParticles.push(new FastSmokeParticle());
+      }
+    }
+
+    function animateSmoke() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      smokeParticles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateSmoke);
+    }
+
+    initSmoke();
+    animateSmoke();
+  </script>
+</body>
+</html>
